@@ -1,0 +1,33 @@
+.layer-panel-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.layer-stats {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 14px;
+  color: var(--text-secondary);
+  background-color: var(--background-color);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.stat-icon {
+  width: 14px;
+  height: 14px;
+}

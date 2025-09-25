@@ -1,0 +1,218 @@
+/* src/components/layers/LayerItem/LayerItem.css */
+.layer-item {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.layer-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.layer-item.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.layer-item-header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+  cursor: pointer;
+}
+
+.layer-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.layer-toggle:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.layer-toggle.visible {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.layer-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.layer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.layer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layer-meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.layer-date,
+.layer-region {
+  background-color: var(--background-color);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.layer-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.layer-expand:hover {
+  color: var(--text-primary);
+}
+
+.layer-expand svg {
+  width: 18px;
+  height: 18px;
+}
+
+.layer-item-body {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  animation: slideDown var(--transition-normal);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.layer-description {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--background-color);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.info-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.layer-controls {
+  margin-bottom: var(--spacing-md);
+}
+
+.opacity-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.opacity-control label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.opacity-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--border-color);
+  border-radius: 2px;
+  outline: none;
+  transition: background var(--transition-fast);
+}
+
+.opacity-slider:hover {
+  background: #ddd;
+}
+
+.opacity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.opacity-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.opacity-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.opacity-slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.layer-details {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.detail-item {
+  background-color: var(--background-color);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}

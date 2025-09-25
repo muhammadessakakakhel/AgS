@@ -1,0 +1,49 @@
+.layer-actions {
+  padding: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
+
+.action-btn.show-all:hover {
+  border-color: var(--success-color);
+  color: var(--success-color);
+}
+
+.action-btn.hide-all:hover {
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+}
+
+.action-btn.reset:hover {
+  border-color: var(--info-color);
+  color: var(--info-color);
+}
+
+.action-btn svg {
+  width: 14px;
+  height: 14px;
+}

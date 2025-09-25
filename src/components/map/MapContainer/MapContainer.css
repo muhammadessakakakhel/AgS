@@ -1,0 +1,76 @@
+/* src/components/map/MapContainer/MapContainer.css */
+.map-container-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--background-color);
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* MapLibre GL control overrides */
+.map-container .maplibregl-ctrl-group {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.map-container .maplibregl-ctrl button {
+  transition: background-color var(--transition-fast);
+}
+
+.map-container .maplibregl-ctrl button:hover {
+  background-color: var(--background-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-container .maplibregl-ctrl-group {
+    margin: var(--spacing-sm);
+  }
+  
+  .map-container .maplibregl-ctrl-scale {
+    font-size: 10px;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1440px) {
+  .map-container .maplibregl-ctrl-group {
+    margin: var(--spacing-md);
+  }
+}
+
+
+
+.boundary-control {
+  position: absolute;
+  bottom: 40px;
+  right: 9px;
+  z-index: 1000;
+}
+
+.boundary-toggle {
+  padding: 8px 16px;
+  background: white;
+  border: 2px solid #FF0000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF0000;
+  transition: all 0.3s;
+}
+
+.boundary-toggle:hover {
+  background: #FF0000;
+  color: white;
+}
+
+.boundary-toggle.active {
+  background: #FF0000;
+  color: white;
+}
