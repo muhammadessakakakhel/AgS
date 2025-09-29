@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════════════════
+   🎨 MAPLIBRE-STYLE BUTTON (Compact version)
+   ═══════════════════════════════════════════════════════ */
+.drawing-controls-compact {
+  position: fixed;
+  top: 240px;                   /* Below geolocate control */
+  right: 10px;                  /* Align with map controls */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0;                       /* No gap - stack tightly */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Compact button - matches MapLibre controls */
+.drawing-toggle-compact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;                  /* Match MapLibre control size */
+  height: 29px;
+  padding: 0;
+  
+  /* Match MapLibre style */
+  background: white;
+  border: none;
+  border-radius: 4px;           /* MapLibre default radius */
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  
+  /* Icon */
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.drawing-toggle-compact:hover {
+  background: #f5f5f5;
+}
+
+.drawing-toggle-compact.active {
+  background: #3B82F6;
+}
+
+.drawing-toggle-compact.active .button-icon {
+  filter: brightness(0) invert(1); /* Make icon white */
+}
+
+/* Point counter badge - small and compact */
+.point-counter-compact {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #EF4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Clear button - also compact */
+.clear-button-compact {
+  width: 29px;
+  height: 29px;
+  margin-top: 10px;              /* Small gap between buttons */
+  padding: 0;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.clear-button-compact:hover {
+  background: #FEF2F2;
+}

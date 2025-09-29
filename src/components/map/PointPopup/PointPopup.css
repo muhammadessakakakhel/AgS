@@ -1,0 +1,239 @@
+/* src/components/map/PointPopup/PointPopup.css */
+
+/* ═══════════════════════════════════════════════════════
+   🎨 MAPLIBRE POPUP OVERRIDES
+   ═══════════════════════════════════════════════════════ */
+
+/* Remove default padding from MapLibre popup */
+.maplibregl-popup-content {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  overflow: hidden;
+}
+
+/* Style the close button (X) */
+.maplibregl-popup-close-button {
+  font-size: 20px;
+  padding: 8px 12px;
+  color: #6B7280;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.maplibregl-popup-close-button:hover {
+  background: #F3F4F6;
+  color: #1F2937;
+}
+
+/* Remove default tip/arrow styling */
+.maplibregl-popup-tip {
+  border-top-color: white !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   📦 POPUP CONTAINER
+   ═══════════════════════════════════════════════════════ */
+.point-popup {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-width: 280px;
+  background: white;
+}
+
+/* ═══════════════════════════════════════════════════════
+   🎯 HEADER SECTION
+   ═══════════════════════════════════════════════════════ */
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  
+  /* Blue gradient background */
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  color: white;
+}
+
+.popup-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.popup-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ═══════════════════════════════════════════════════════
+   📊 BODY SECTION (Coordinates)
+   ═══════════════════════════════════════════════════════ */
+.popup-body {
+  padding: 16px 20px;
+  background: white;
+}
+
+/* Each row of information */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+/* Label (left side) */
+.info-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+/* Value (right side) */
+.info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1F2937;
+  font-family: 'Courier New', monospace; /* Monospace for numbers */
+}
+
+/* Coordinates row special styling */
+.info-value.coords {
+  font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   🔘 BUTTONS SECTION
+   ═══════════════════════════════════════════════════════ */
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #F9FAFB;
+}
+
+/* Base button styles */
+.popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* PRIMARY BUTTON (Google Maps) */
+.popup-btn.primary {
+  background: #3B82F6;
+  color: white;
+}
+
+.popup-btn.primary:hover {
+  background: #2563EB;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.popup-btn.primary:active {
+  transform: translateY(0);
+}
+
+/* DANGER BUTTON (Delete) */
+.popup-btn.danger {
+  background: white;
+  color: #EF4444;
+  border: 1px solid #FECACA;
+}
+
+.popup-btn.danger:hover {
+  background: #FEF2F2;
+  border-color: #EF4444;
+  transform: translateY(-1px);
+}
+
+.popup-btn.danger:active {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════
+   📱 RESPONSIVE: Mobile phones
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .point-popup {
+    min-width: 260px;
+  }
+  
+  .popup-header {
+    padding: 14px 16px;
+  }
+  
+  .popup-title {
+    font-size: 15px;
+  }
+  
+  .popup-body {
+    padding: 14px 16px;
+  }
+  
+  .info-row {
+    padding: 6px 0;
+  }
+  
+  .info-label {
+    font-size: 12px;
+  }
+  
+  .info-value {
+    font-size: 13px;
+  }
+  
+  .popup-actions {
+    padding: 14px 16px;
+  }
+  
+  .popup-btn {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ✨ ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+/* Fade in when popup appears */
+.maplibregl-popup {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   🖨️ PRINT: Hide popups when printing
+   ═══════════════════════════════════════════════════════ */
+@media print {
+  .maplibregl-popup {
+    display: none !important;
+  }
+}

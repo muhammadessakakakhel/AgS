@@ -9,6 +9,10 @@ import MapError from '../MapError/MapError';
 import MapLoading from '../MapLoading/MapLoading';
 import './MapContainer.css';
 
+import { useDrawingPoints } from '../../../hooks/useDrawingPoints';
+import { usePointPopup } from '../PointPopup/PointPopup';
+import DrawingButton from '../DrawingButton/DrawingButton';
+
 const MapContainer = ({
   selectedLayers = [],
   onMapLoad,
@@ -20,6 +24,16 @@ const MapContainer = ({
 
   // Initialize map
   const { map, mapLoaded, mapError, setMapError } = useMap(mapContainer, onMapLoad);
+
+      // ══════════════════════════════════════════════════════════════
+  // 🆕 NEW FEATURE - Drawing Points
+  // ══════════════════════════════════════════════════════════════
+  const drawing = useDrawingPoints(map, mapLoaded);
+  
+  // Setup point popups (info windows)
+  usePointPopup(map, mapLoaded, drawing.points, drawing.deletePoint);
+  // ══════════════════════════════════════════════════════════════
+
 
   // Manage WMS layers
   const { zoomToLayer, updateOpacity } = useWMSLayers(map, mapLoaded, selectedLayers);
@@ -38,6 +52,10 @@ const MapContainer = ({
   // Handle map clicks
   useMapClick(map, mapLoaded, selectedLayers, onFeatureClick);
 
+
+
+
+
   return (
     <div className="map-container-wrapper">
       {mapError && (
@@ -45,6 +63,22 @@ const MapContainer = ({
       )}
 
       <div ref={mapContainer} className="map-container" />
+
+           {/* ═══════════════════════════════════════════════════════ */}
+      {/* 🆕 DRAWING CONTROLS - Add this new section              */}
+      {/* ═══════════════════════════════════════════════════════ */}
+      {mapLoaded && (
+        <DrawingButton
+          isDrawing={drawing.isDrawing}
+          pointCount={drawing.pointCount}
+          onToggle={drawing.toggleDrawing}
+          onClearAll={drawing.clearAllPoints}
+          compact={true}  // ✨ Compact MapLibre style (or remove, it's default)
+
+        />
+      )}
+      {/* ═══════════════════════════════════════════════════════ */}
+
 
       {/* Toggle button: hides/shows ALL boundaries */}
       {showBoundaries && loadedLayers.length > 0 && (
